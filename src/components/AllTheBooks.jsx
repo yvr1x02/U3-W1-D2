@@ -15,11 +15,11 @@ render(){
                 console.log(Book)
                 return(
                     <Col sm={4} md={3} lg={2}>
-                    <Card>
+                    <Card className='m-4'>
                         <Card.Img variant='top' src ={Book.img}/>
                         <Card.Body>
                             <Card.Title className='text-truncate'>{Book.title}</Card.Title>
-                            <Card.Text>Price:{Book.price}</Card.Text>
+                            <Card.Text>Price: {Book.price}€ </Card.Text>
                             <div className='d-flex justify-content-between'>
                                 <Button variant='primary'>Shop</Button>
                             </div>

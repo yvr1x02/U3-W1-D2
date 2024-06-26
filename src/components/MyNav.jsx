@@ -26,10 +26,7 @@ function MyNav() {
             <Nav.Link href="#browse">Browse</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item eventKey={"Fantasy"}>Fantasy</NavDropdown.Item>
-              <NavDropdown.Item eventKey={"History"}>History
-
-              </NavDropdown.Item>
-
+              <NavDropdown.Item eventKey={"History"}>History</NavDropdown.Item>
               <NavDropdown.Item eventKey={"Horror"}>Horror</NavDropdown.Item>
               <NavDropdown.Item eventKey={"Romance"}>Romance</NavDropdown.Item>
               <NavDropdown.Item eventKey={"Scifi"}>Scifi</NavDropdown.Item>
