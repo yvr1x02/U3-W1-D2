@@ -18,7 +18,7 @@ class SingleBook extends Component {
 
     return (
       <Col sm={4} md={3} lg={2} >
-        <Card onClick={this.selectedCard} style={{border: this.state.selected ? "2px solid  red" : "none"}}>
+        <Card onClick={this.selectedCard} style={{border: this.state.selected ? "2px solid  red" : "1px solid black"}}>
           <Card.Img variant='top' src={book.img} />
           <Card.Body>
             <Card.Title className='text-truncate'>{book.title}</Card.Title>

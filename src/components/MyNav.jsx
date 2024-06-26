@@ -34,8 +34,10 @@ function MyNav() {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
+        
       </Container>
     </Navbar>
+    
   );
 }
 

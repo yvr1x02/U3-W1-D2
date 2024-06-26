@@ -13,7 +13,7 @@ class BookList extends Component {
     render() {
         return (
            
-            <Row>
+            <Row className='mx-2'>
                 {this.state.viewBook.map(book => {
                     console.log(book);
                     return (
