@@ -1,6 +1,5 @@
 import { Button, Card, Col, Row } from 'react-bootstrap';
 import Scifi from '../data/books/scifi.json';
-import Horror from '../data/books/horror.json';
 import { Component } from 'react';
 
 
