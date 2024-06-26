@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Col,  Row } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import SingleBook from './SingleBook';
-import Scifi from '../data/books/scifi.json';
+
 import Horror from "../data/books/horror.json"
 
 
