@@ -1,30 +1,19 @@
-import React, { Component } from 'react';
-import { Card, Col } from 'react-bootstrap';
+import React, { Component } from "react";
+import { Card } from "react-bootstrap";
 
 class SingleBook extends Component {
-  state = {
-    selected: false,
+  handleClick = () => {
+    this.props.onBookSelect(this.props.book.asin);
   };
 
-
-  selectedCard =() =>{
-    this.setState({selected: !this.state.selected});
-  }
-  
-
   render() {
-    const book = this.props.book;
- 
-
     return (
-      <Col sm={4} md={3} lg={2} >
-        <Card onClick={this.selectedCard} style={{border: this.state.selected ? "2px solid  red" : "1px solid black"}}>
-          <Card.Img variant='top' src={book.img} />
-          <Card.Body>
-            <Card.Title className='text-truncate'>{book.title}</Card.Title>
-          </Card.Body>
-        </Card>
-      </Col>
+      <Card onClick={this.handleClick} style={{ border: this.props.isSelected ? "3px solid red" : "none" }}>
+        <Card.Img variant="top" src={this.props.book.img} />
+        <Card.Body>
+          <Card.Title style={{ color: "black" }}>{this.props.book.title}</Card.Title>
+        </Card.Body>
+      </Card>
     );
   }
 }
