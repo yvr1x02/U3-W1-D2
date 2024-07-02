@@ -1,56 +1,53 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import SingleBook from "./SingleBook";
 import { Col, Form, Row } from "react-bootstrap";
 import CommentArea from "./CommentArea";
 
-class BookList extends Component {
-  state = {
+const BookList = ({ books }) => {
+  /* state = {
     searchQuery: "",
     selectedBookAsin: null,
   };
+ */
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedBookAsin, setSelectedBookAsin] = useState(null);
 
-  handleBookSelect = (asin) => {
-    this.setState({ selectedBookAsin: asin });
+  const handleBookSelect = (asin) => {
+    setSelectedBookAsin(asin);
   };
 
-  render() {
-    return (
-      <>
-        <Row className="justify-content-center mt-5">
-          <Col xs={12} md={4} className="text-center">
-            <Form.Group>
-              <Form.Control
-                type="search"
-                placeholder="Cerca un libro"
-                value={this.state.searchQuery}
-                onChange={(e) => this.setState({ searchQuery: e.target.value })}
-              />
-            </Form.Group>
-          </Col>
-        </Row>
-        <Row className="g-2 mt-3">
-          <Col xs={12} md={8}>
-            <Row>
-              {this.props.books
-                .filter((b) => b.title.toLowerCase().includes(this.state.searchQuery))
-                .map((b) => (
-                  <Col xs={12} md={4} key={b.asin}>
-                    <SingleBook
-                      book={b}
-                      onBookSelect={this.handleBookSelect}
-                      isSelected={this.state.selectedBookAsin === b.asin}
-                    />
-                  </Col>
-                ))}
-            </Row>
-          </Col>
-          <Col xs={12} md={4}>
-            {this.state.selectedBookAsin && <CommentArea asin={this.state.selectedBookAsin} />}
-          </Col>
-        </Row>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Row className="justify-content-center mt-5">
+        <Col xs={12} md={4} className="text-center">
+          <Form.Group>
+            <Form.Control
+              type="search"
+              placeholder="Cerca un libro"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+      </Row>
+      <Row className="g-2 mt-3">
+        <Col xs={12} md={8}>
+          <Row>
+            {books
+              .filter((b) => b.title.toLowerCase().includes(searchQuery.toLocaleLowerCase()))
+              .map((b) => (
+                <Col xs={12} md={4} key={b.asin}>
+                  <SingleBook book={b} onBookSelect={handleBookSelect} isSelected={selectedBookAsin === b.asin} />
+                </Col>
+              ))}
+          </Row>
+        </Col>
+        <Col xs={12} md={4}>
+          {selectedBookAsin && <CommentArea asin={selectedBookAsin} />}
+        </Col>
+      </Row>
+    </>
+  );
+};
 
 export default BookList;
